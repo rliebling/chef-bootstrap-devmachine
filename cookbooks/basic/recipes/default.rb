@@ -1,9 +1,12 @@
-include_recipe "git"
-include_recipe "curl"
-include_recipe "basic::vagrant"
+#include_recipe "curl"
+#include_recipe "basic::vagrant"
+#include_recipe "basic::git"
+#include_recipe "basic::golang"
+#include_recipe "basic::ruby"
+#include_recipe "basic::python"
+include_recipe "basic::java"
+#include_recipe "basic::mysql"
 
-#include_recipe "runit"
-#include_recipe "tmux"
 # oracle java jdk
 # hg
 # virtualbox
@@ -11,8 +14,8 @@ include_recipe "basic::vagrant"
 # vagrant-aws
 #
 
-%w(dos2unix golang vim-gnome ).each do |pkg|
-  package pkg
+%w(runit tmux dos2unix vim-gnome skype ).each do |pkg|
+#  package pkg
 end
 
 

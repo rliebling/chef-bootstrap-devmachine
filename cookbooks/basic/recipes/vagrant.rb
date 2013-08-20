@@ -6,6 +6,13 @@ end
 bash "install vagrant" do
   code <<-EOC
   dpkg -i #{LOCAL_FILE}
+  EOC
+  not_if "dpkg --get-selections | grep vagrant.*install"
+end
+
+bash "install vagrant-aws" do
+  code <<-EOC
   vagrant plugin install vagrant-aws
   EOC
+  not_if "vagrant plugin list | grep vagrant-aws"
 end
