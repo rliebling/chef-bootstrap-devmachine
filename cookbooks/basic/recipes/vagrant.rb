@@ -10,9 +10,11 @@ bash "install vagrant" do
   not_if "dpkg --get-selections | grep vagrant.*install"
 end
 
-bash "install vagrant-aws" do
-  code <<-EOC
-  vagrant plugin install vagrant-aws
-  EOC
-  not_if "vagrant plugin list | grep vagrant-aws"
+%w(vagrant-aws vagrant-omnibus vagrant-berkshelf).each do |plugin|
+  bash "install #{plugin}" do
+    code <<-EOC
+    vagrant plugin install #{plugin}
+    EOC
+    not_if "vagrant plugin list | grep #{plugin}"
+  end
 end
