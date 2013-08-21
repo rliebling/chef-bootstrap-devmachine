@@ -12,3 +12,6 @@ bash "install golang" do
   not_if "go version | grep 1.1.2"
 end
 
+%w(bzr mercurial).each do |pkg|
+  package pkg
+end
