@@ -11,3 +11,5 @@ bash "install rbenv" do
   not_if {File.exists? "#{node['user']['home']}/.rbenv"}
 
 end
+
+gem "bundler"
