@@ -14,8 +14,11 @@ include_recipe "basic::java"
 # vagrant-aws
 #
 
-%w(runit tmux dos2unix vim-gnome skype ).each do |pkg|
-#  package pkg
+%w(runit tmux dos2unix vim-gnome exuberant-ctags skype fonts-inconsolata).each do |pkg|
+  package pkg
 end
 
+package 'xclip' # to support tmux clipboard integration
+
+pkg 'gir1.2-gtop-2.0' # for the multi-core system monitoring applet
 
