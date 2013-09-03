@@ -13,3 +13,5 @@ bash "install rbenv" do
 end
 
 gem "bundler"
+
+package "ruby-build"
