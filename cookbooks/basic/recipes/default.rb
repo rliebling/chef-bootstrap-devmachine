@@ -1,11 +1,11 @@
-#include_recipe "curl"
-#include_recipe "basic::vagrant"
-#include_recipe "basic::git"
-#include_recipe "basic::golang"
-#include_recipe "basic::ruby"
-#include_recipe "basic::python"
+include_recipe "curl"
+include_recipe "basic::vagrant"
+include_recipe "basic::git"
+include_recipe "basic::golang"
+include_recipe "basic::ruby"
+include_recipe "basic::python"
 include_recipe "basic::java"
-#include_recipe "basic::mysql"
+include_recipe "basic::mysql"
 
 # oracle java jdk
 # hg
@@ -20,5 +20,5 @@ end
 
 package 'xclip' # to support tmux clipboard integration
 
-pkg 'gir1.2-gtop-2.0' # for the multi-core system monitoring applet
+package 'gir1.2-gtop-2.0' # for the multi-core system monitoring applet
 
