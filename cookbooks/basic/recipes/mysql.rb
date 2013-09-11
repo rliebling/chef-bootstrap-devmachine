@@ -8,9 +8,11 @@ bash "configure percona repo" do
   not_if "grep -h ^deb /etc/apt/sources.list /etc/apt/sources.list.d/* | grep percona"
 end
 
-directory "/etc/mysql/conf.d"
+directory "/etc/mysql/conf.d" do
+  recursive true
+end
 
-%w(libmysqlclient18:i386 libqt4-sql-mysql:i386 mysql-common) do |pkg_remove|
+%w(libmysqlclient18:i386 libqt4-sql-mysql:i386 mysql-common).each do |pkg_remove|
   package pkg_remove do
     action :remove
   end
